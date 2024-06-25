@@ -20,8 +20,7 @@ jobs:
       run: echo "BUILD_TYPE=${{ matrix.build_type }}" >> $GITHUB_ENV
 
     - uses: actions/checkout@v4
-    - name: Fetch submodules
-      run: git submodule update --init --recursive
+    
 
     - name: Set up gradle caches
       uses: actions/cache@v4
@@ -85,8 +84,7 @@ jobs:
       run: echo "BUILD_TYPE=${{ matrix.build_type }}" >> $GITHUB_ENV
 
     - uses: actions/checkout@v4
-    - name: Fetch submodules
-      run: git submodule update --init --recursive
+    
 
     - name: Set up gradle caches
       uses: actions/cache@v4
