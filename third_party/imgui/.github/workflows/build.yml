@@ -21,7 +21,9 @@ jobs:
       VS_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\
       MSBUILD_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
       - name: Install Dependencies
         shell: powershell
@@ -199,7 +201,9 @@ jobs:
   Linux:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Install Dependencies
       run: |
@@ -364,7 +368,9 @@ jobs:
   MacOS:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Install Dependencies
       run: |
@@ -424,7 +430,9 @@ jobs:
   iOS:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Build example_apple_metal
       run: |
@@ -434,7 +442,9 @@ jobs:
   Emscripten:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Install Dependencies
       run: |
@@ -461,7 +471,9 @@ jobs:
   Android:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Build example_android_opengl3
       run: |

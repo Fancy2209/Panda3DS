@@ -15,13 +15,15 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - name: Fetch submodules
       run: git submodule update --init --recursive
 
     - name: Setup Vulkan SDK
       run: |
-        wget https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
+        Invoke-WebRequest -Uri "https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe" -OutFile vulkan-sdk.exe
         .\vulkan-sdk --accept-licenses --default-answer --confirm-command install
 
     - name: Configure CMake
@@ -41,7 +43,9 @@ jobs:
     runs-on: macos-13
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - name: Fetch submodules
       run: git submodule update --init --recursive
 
@@ -68,7 +72,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - name: Fetch submodules
       run: git submodule update --init --recursive
 
@@ -105,7 +111,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - name: Fetch submodules
       run: git submodule update --init --recursive
 
